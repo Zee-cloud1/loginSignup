@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+    <script>
+    function myfun(){
+        var a = document.getElementById("pass1").value;
+        var b = document.getElementById("pass2").value;
+
+        if(a==""){
+            document.getElementById("messages").innerHTML="** Please Fill Password";
+            return false;
+        }
+        if(a.length<5){
+            document.getElementById("messages").innerHTML="** password length must be greater than 5 characters";
+            return false;
+
+        }
+        if(a.length<5){
+            document.getElementById("messages").innerHTML="** password length must be greater than 5 characters";
+            return false;
+
+        }
+        if(a!=b){
+            document.getElementById("messages").innerHTML="** passwords did not match";
+            return false;
+
+        }
+    }
+    </script>
+
+    
+        <h3>SignUp</h3>
+
+        <form action="/signup" method="post" onsubmit="return myfun()">
+        {% csrf_token %}
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">Patient</option>
+                <option value="2">Doctor</option>
+              </select>
+             <br>
+
+            <label for="">Username</label>
+            <input type="text" id="username" name="username" placeholder="Create a username (only letter an number)"Required>
+             <br>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Profile photo</label>
+                <input class="form-control" name="profilephoto" type="file" id="profilephoto">
+              </div>
+              <br>
+
+            <label for="">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Enter you first name" Required>
+            <br>
+
+            <label for="">Last Name</label>Required
+            <input type="text" id="lname" name="lname" placeholder="Enter you first name" Required>
+            <br>
+
+            <label for="">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address"Required>
+            <br>
+
+            <label for="">Password</label>
+            <input type="password" id="pass1" name="pass1" placeholder="Create a Password"Required>
+            <span id="messages"> </span><br></br>
+
+            <label for="">Confirm your password</label>
+            <input type="password" id="pass2" name="pass2" placeholder="Re enter your Password"Required>
+            <br>
+                <label for="inputCity" class="form-label">City</label>
+                <input type="text" class="form-control" name="city" id="city">
+              </div>
+              <div class="col-md-4">
+                <label for="inputState" class="form-label">State</label>
+                <select name="state" id="state" class="form-select">
+                  <option selected>Choose...</option>
+                  <option>Delhi</option>
+                  <option>Outside Delhi</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input type="text" class="form-control" name="zip" id="zip">
+              </div>
+              
+         <div class="col-12">
+         <button type="submit">Sign Up</button>
+          </div>>
+
+
+
+        </form>
+        <script src="" async defer></script>
+    </body>
+</html>
